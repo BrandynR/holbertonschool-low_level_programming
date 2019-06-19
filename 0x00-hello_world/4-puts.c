@@ -1,8 +1,14 @@
 #include <stdio>
-int main () {
-	char str[52];
-	strcpy(str, ""Programming is like building a multilingual puzzle");
-	puts(str);
+
+/**
+*main - Enrty point
+*
+*Return: Always 0 9Sucess)
+*/
+
+int main(void) 
+{
+	puts(/"Programming is like building a multilingual puzzle\n)
 
 	return(0);
 }
