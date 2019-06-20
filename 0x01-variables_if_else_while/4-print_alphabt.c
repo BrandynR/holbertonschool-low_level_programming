@@ -9,9 +9,9 @@
 int main(void)
 {
 int x;
+for (x = 'a'; x <= 'z'; x++)
+if (x != 'q' && x != 'e'; x++)
+putchar(x)
 
-for (x = 'abcdfghijklmnoprstuvwxyz')
-putchar(x);
-putchar('\n');
 return (0);
 }
