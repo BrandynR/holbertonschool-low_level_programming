@@ -1,16 +1,17 @@
-
 #include <stdio.h>
+
 /**
- *main - Changing the last number at random
+ *main - Printing a to z
  *
- *Return: Whether it is >,<, or = 0
+ *Return:Alphabet a to z lower case
  */
+
 int main(void)
-int x;
 {
-for (int x = 'a'; x <= 'z'; x++)
-{
+	int x;
+
+for (x = 'a'; x <= 'z'; x++)
 putchar(x);
-}
+putchar('\n');
 return (0);
 }
