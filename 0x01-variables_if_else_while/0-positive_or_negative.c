@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - Inputs random number
- *
- * Return: Positive, zero, or negative
- */
+* main - Inputs random number
+*
+* Return: Positive, zero, or negative
+**/
 int main(void)
 {
 int n;
