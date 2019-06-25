@@ -1,4 +1,4 @@
-#include "header.h"
+#include "holberton.h"
 
 /**
  *main Lower case alphabet
@@ -6,13 +6,12 @@
  *Result: prints the alphabet in lower case
  */
 
-int main(void)
+void print_alphabet(void)
 {
 	int x;
 	for (x = 'a'; x <= 'z'; x++)
 	{
 		_putchar(x);
-	     _putchar('\n');
 	}
-return (0);
+ _putchar('\n');
 }
