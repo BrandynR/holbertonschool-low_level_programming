@@ -1,14 +1,15 @@
 #include "holberton.h"
 
 /**
- *main - checks for any letter
+ *int _isalpha(int c) - checks for any letter
  *
- *Return: 0 for non letter 1 forupper or lowercase
+ *Return: 0 for non letter 1 for upper or lowercase
  */
 
-int main(void)
+int _isalpha(int c)
 {
 	int x;
+
 	if (x >= 'a' && x <= 'z')
 	{
 		return (1);
