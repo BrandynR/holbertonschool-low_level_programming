@@ -1,10 +1,19 @@
 #include "holberton.h"
 
 /**
- *int _abs(int) - computes absolute value of an integer
- *
+ *_abs - prints absolute value
+ *@x: represents absolute value
  *Return:Always 0
  */
 
-int _abs(int);
+int _abs(int x)
+{
+int y;
 
+if (x < 0)
+	(y = x * -1);
+	return (y);
+
+if (x >= 0)
+	return (x);
+}
