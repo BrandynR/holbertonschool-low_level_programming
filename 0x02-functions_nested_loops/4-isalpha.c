@@ -1,23 +1,22 @@
 #include "holberton.h"
 
 /**
- *int _isalpha(int c) - checks for any letter
- *
+ *_isalpha(int c) - checks for any letter
+ *@c: represents a letter
  *Return: 0 for non letter 1 for upper or lowercase
  */
 
 int _isalpha(int c)
 {
-	int x;
 
-	if (x >= 'a' && x <= 'z')
+	if (c >= 'a' && c <= 'z')
 	{
 		return (1);
 	}
-	else if (x >= 'A' && x <= 'Z')
+	else if (c >= 'A' && c <= 'Z')
 	{
 		return (1);
-		else
-			return (0);
 	}
+	else
+		return (0);
 }
