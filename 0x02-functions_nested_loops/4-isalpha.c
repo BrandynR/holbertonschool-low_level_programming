@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- *_isalpha(int c) - checks for any letter
+ *_isalpha - checks for any letter
  *@c: represents a letter
  *Return: 0 for non letter 1 for upper or lowercase
  */
