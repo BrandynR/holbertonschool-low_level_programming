@@ -2,7 +2,6 @@
 
 /**
  *print_numbers - prints numbers 0-9
- *@x:digit between 1 and 9
  *Return: void
  */
 
