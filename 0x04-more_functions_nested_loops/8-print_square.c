@@ -14,8 +14,11 @@ void print_square(int size)
 	{
 		for (tag = 0; tag < size; tag++)
 		{
-			if (size <=0)
+			if (size <= 0)
+			{
 				_putchar('\n');
+				_putchar('\n');
+			}
 			else
 				_putchar(35);
 		}
