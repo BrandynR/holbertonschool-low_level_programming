@@ -1,0 +1,1 @@
+This directory consists of prototypes regarding pointers and arrays.
