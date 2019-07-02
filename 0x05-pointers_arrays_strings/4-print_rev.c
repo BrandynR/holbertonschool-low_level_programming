@@ -8,33 +8,13 @@
 
 void print_rev(char *s)
 {
-int length, c;
-char *begin, *end, temp;
+int len = 0;
 
-length = string_length(s);
-begin  = s;
-end    = s;
+while (s[len] != '\0')
+len++;
 
-for (c = 0; c < length - 1; c++)
-end++;
- 
-for (c = 0; c < length/2; c++)
-{
-temp   = *end;
-*end   = *begin;
-*begin = temp;
+ for (; (len = '\0' - 1); len--)
 
-	begin++;
-	end--;
-}
-}
- 
-int string_length(char *pointer)
-{
-int c = 0;
- 
-while( *(pointer + c) != '\0' )
-c++;
- 
-return c;
+_putchar(len);
+_putchar('\n');
 }
