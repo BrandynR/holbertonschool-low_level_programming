@@ -2,16 +2,16 @@
 
 /**
  *_puts - prints a string
- *@str: the tsring to be printed
+ *@str: the string to be printed
  *Return:
  */
 
 void _puts(char *str)
 {
-char s[100];
 int c = 0;
 
-for (c = 0; s[c] != '\0'; c++)
-putchar(c)
+for (c = 0; str[c] != '\0'; c++)
+_putchar(c);
 
-putchar('\n')
+_putchar('\n');
+}
