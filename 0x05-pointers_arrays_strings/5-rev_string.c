@@ -17,26 +17,26 @@ end = s;
 
 for (c = 0; c < len - 1; c++)
 {
-end++;
+	end++;
 }
 for (c = 0; c < len / 2; c++)
 {
-temp = *end;
-*end = *begin;
-*begin = temp;
+	temp = *end;
+	*end = *begin;
+	*begin = temp;
 
-begin++;
-end--;
+	begin++;
+	end--;
 }
 }
 
 int str_len(char *pointer)
 {
-int c = 0;
+	int c = 0;
 
-while (*(pointer + c) != '\0')
-{
-c++;
-}
+	while (*(pointer + c) != '\0')
+	{
+		c++;
+	}
 return (c);
 }
