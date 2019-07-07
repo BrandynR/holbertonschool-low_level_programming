@@ -6,7 +6,7 @@
  *Return: encrypted string
  */
 
-char *rot13(char *)
+char *rot13(char *i)
 {
 	int i;
 
@@ -25,5 +25,5 @@ char *rot13(char *)
 			}
 		i++;
 	}
-	return (s)
+	return (s);
 }
