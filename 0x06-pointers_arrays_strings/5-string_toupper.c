@@ -2,18 +2,18 @@
 
 /**
  *string_toupper - changes all lower to uppercase
- *
+ *@s: letter to change case
  *Return: upper case string
  */
 
-char *string_toupper(char *str)
+char *string_toupper(char *s)
 {
-	int i = 0;
+	int i;
 
-	if (*(str + i) >= 97 && *(str + i) <= 122)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		*(str + i) = *(str + i) - 32;
+		if (s[i] >= 'a' && s[i] <= 'z')
+			s[i] = s[i] - 32;
 	}
-i++;
-return (0);
+	return (s);
 }
