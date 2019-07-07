@@ -10,7 +10,7 @@ void print_number(int n)
 {
 	int  x, y;
 
-	y  = 5000;
+	y  = 100000;
 	x = 1;
 	if (n > 0)
 	{
