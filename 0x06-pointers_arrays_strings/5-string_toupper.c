@@ -6,9 +6,8 @@
  *Return: upper case string
  */
 
-char *string_toupper(char *)
+char *string_toupper(char *str)
 {
-	char *str;
 	int i = 0;
 
 	if (*(str + i) >= 97 && *(str + i) <= 122)
