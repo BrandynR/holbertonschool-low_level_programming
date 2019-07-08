@@ -8,30 +8,18 @@
 
 void print_number(int n)
 {
-	int  x, y;
+	int count = 1, divide = 1;
 
-	x = 1;
-	y = 10000;
-	if (n > 0)
+	while (divide <= n / 10)
 	{
-		n = (n * -1);
-		x = (x * -1);
+		divide *= 10;
+		count++;
 	}
-	if  (n != 0)
+	while (count > 0)
 	{
-		while ((n / y) ==  0)
-		{
-			y = y / 10;
-		}
-		if (x == 1)
-			_putchar('-');
-		while (y >= 1)
-		{
-			_putchar(-(n / y) + '0');
-			n = n % y;
-			y = y / 10;
-		}
+		_putchar((n / divide) + '0');
+		n %= divide;
+		divide /= 10;
+		count--;
 	}
-	else
-		_putchar('0');
 }
