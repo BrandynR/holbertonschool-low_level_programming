@@ -10,10 +10,12 @@ void print_number(int n)
 {
 	int  x, y;
 
+	x = 1;
+	y = 10000;
 	if (n > 0)
 	{
-		n * -1;
-		x * -1;
+		n = (n * -1);
+		x = (x * -1);
 	}
 	if  (n != 0)
 	{
