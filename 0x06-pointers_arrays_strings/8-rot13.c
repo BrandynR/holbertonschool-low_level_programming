@@ -3,7 +3,7 @@
 /**
  *rot13 - converts a string to rot13 encryption
  *@s: string to encrypt
- *Return: encrypted string
+ *Return: @s  encrypted string
  */
 
 char *rot13(char *s)
@@ -11,7 +11,7 @@ char *rot13(char *s)
 	char c, *ret = s;
 
 	for (; (c = *s); s++)
-		if (( c >= 'A' && c <= 'Z' ) ||
+		if ((c >= 'A' && c <= 'Z') ||
 		    (c >= 'a' && c <= 'z'))
 
 			*s = (((c & ~(1 << 5)) - 'A' + 13)
