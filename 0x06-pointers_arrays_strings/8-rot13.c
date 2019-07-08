@@ -6,22 +6,15 @@
  *Return: encrypted string
  */
 
-char *rot13(char *i)
+char *rot13(char *s)
 {
-	int i;
+	char c, *ret = s;
 
-	i = 0;
+	for (; (c = *s); s++)
+		if (( c >= 'A' && c <= 'Z' ) ||
+		    (c >= 'a' && c <= 'z'))
 
-
-	if ((s[i] >= 'a' && s[i] <= 'm') || (s[i] >= 'A' && s[i] <= 'M'))
-		{
-			s[i] = (s[i] + 13);
-		}
-	while ((s[i] >= 'n' && s[i] <= 'z') || (s[i] >= 'N' && s[i] <= 'Z'))
-			{
-				s[i] = (s[i] - 13);
-			}
-		i++;
-
-	return (s);
+			*s = (((c & -(1 << 5)) - 'A' + 13)
+			      % 26 + 'A') | (c & 1 << 5);
+	return (ret);
 }
