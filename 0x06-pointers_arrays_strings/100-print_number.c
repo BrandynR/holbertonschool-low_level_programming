@@ -1,21 +1,19 @@
 #include "holberton.h"
 
 /**
- * print_number - prints a number
- * @n: number
- * Return: nothing;
+ * print_number - prints an integer
+ * @n: integer
+ * Return: void
  */
 
 void print_number(int n)
 {
 	int  x, y;
 
-	y  = 100000;
-	x = 1;
 	if (n > 0)
 	{
-		n *= -1;
-		x *= -1;
+		n * -1;
+		x * -1;
 	}
 	if  (n != 0)
 	{
