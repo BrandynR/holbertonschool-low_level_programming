@@ -17,9 +17,9 @@ void print_number(int n)
 	}
 	while (count > 0)
 	{
-		_putchar((n / divide) + '0');
 		n %= divide;
 		divide /= 10;
 		count--;
+		_putchar((n / divide) + '0');
 	}
 }
