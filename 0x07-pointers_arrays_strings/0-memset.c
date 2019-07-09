@@ -1,7 +1,9 @@
 #include "holberton.h"
 /**
  *_memset - .
- *
+ *@s: pointer to memory area
+ *@b: constant byte
+ *@n: number of bytes
  *Return: s
  */
 
