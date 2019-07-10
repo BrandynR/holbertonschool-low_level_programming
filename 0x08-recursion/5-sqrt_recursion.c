@@ -1,4 +1,4 @@
-#inlude "holberton.h"
+#include "holberton.h"
 
 /**
  *check - checker function
