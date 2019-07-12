@@ -10,24 +10,24 @@
 
 int main(void)
 {
-	int i, j, sum;
-	char array[63] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	char pass[100];
+	int ran, num, i;
 
-	srand(time(NULL));
-	sum = 0;
+	num = 0;
 	i = 0;
-	while (sum < (2772 - 122))
+	srand(time(NULL));
+	while (num < 2645)
 	{
-		j = rand() % 62;
-		pass[i] = array[j];
-		sum = sum + pass[i];
-		i++;
+		ran = random() % 127;
+		if (ran > 32)
+		{
+			pass[i++] = randNum;
+			num += ran;
+		}
 	}
-	j = 2772 - sum;
-	password[i] = j;
-	i++;
+	pass[i++] = (2772 - num);
 	pass[i] = '\0';
 	printf("%s", pass);
+
 	return (0);
 }
