@@ -1,0 +1,40 @@
+#include "holberton.h"
+#include <stdlib.h>
+/**
+ * _strncmp - compares two strings
+ * @s1: string 1
+ * @s2: string 2
+ * @b: number of bytes to check
+ * Return: 0 if strings are the same
+ */
+int _strncmp(char *s1, char *s2, unsigned int b)
+{
+	unsigned int i;
+	for (i = 0; i <= b && *s1 == *s2 && *s1 != '\0' && *s2 != '\0'; i++)
+	{
+		s1++;
+		s2++;
+	}
+	return (i - b);
+}
+/**
+ * _strstr - locates a substring
+ * @haystack: string to look though
+ * @needle: substring to find
+ * Return: pointer to string with result
+ */
+char *_strstr(char *haystack, char *needle)
+{
+	unsigned int len;
+
+	len = 0;
+	while (needle[len] != '\0')
+		len++;
+	while (*haystack != '\0')
+	{
+		if (_strncmp(haystack, needle, len) == 0)
+			return (haystack);
+		haystack++;
+	}
+	return (NULL);
+}
