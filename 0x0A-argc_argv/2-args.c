@@ -1,4 +1,4 @@
-#inlcude <stdio.h>
+#include <stdio.h>
 /**
  *main -prints arguments it recieves
  *@argc:argument count
