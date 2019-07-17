@@ -10,7 +10,7 @@
 
 char *argstostr(int ac, char **av)
 {
-	char *a, *retp;
+	char *a, *retpnt;
 	int i, j, total;
 
 	if (ac == 0 || av == NULL)
@@ -28,7 +28,7 @@ char *argstostr(int ac, char **av)
 	if (a == NULL)
 		return (NULL);
 
-	retp = a;
+	retpnt = a;
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
@@ -40,5 +40,5 @@ char *argstostr(int ac, char **av)
 		a++;
 	}
 
-	return (retp);
+	return (retpnt);
 }
