@@ -1,0 +1,1 @@
+Directory contains structures and examples of how to use them, including typedef.
