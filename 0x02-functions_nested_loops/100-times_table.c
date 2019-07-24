@@ -3,7 +3,7 @@
 /**
  * print_times_table - prints the 9 times table
  * @tab_size: The size of the table.
- *
+ *Return: void
  */
 void print_times_table(int tab_size)
 {
