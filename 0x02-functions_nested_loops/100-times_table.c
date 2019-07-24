@@ -1,49 +1,41 @@
 #include "holberton.h"
 
 /**
- * print_times_table - prints the n times table
- * @n: number to multiply
- * Return: void
+ * print_times_table - prints the 9 times table
+ * @tab_size: The size of the table.
+ *
  */
-void print_times_table(int n)
+void print_times_table(int tab_size)
 {
-	int row, col, one, ten, hun, mult;
+	int i, j, prod;
+	char hunds, tens, ones;
 
-	if (n <= 15 && n >= 0)
+	if (tab_size < 0 || tab_size > 15)
+		return;
+	for (i = 0; i <= tab_size; i++)
 	{
-		for (row = 0; row <= n; row++)
+		for (j = 0; j <= tab_size; j++)
 		{
-			for (col = 0; col <= n; col++)
+			prod = i * j;
+			ones = (prod % 10) + 48;
+			tens = ((prod / 10) % 10) + 48;
+			hunds = (((prod / 10) / 10) % 10) + 48;
+			if (tens == '0' && hunds == '0')
+				tens = ' ';
+			if (hunds == '0')
+				hunds = ' ';
+			if (j != 0)
 			{
-				mult = row * col;
-				one = mult % 10;
-				ten = mult / 10 % 10;
-				hun = mult / 100;
-				if (hun == 0 && col != 0)
-				{
-					_putchar(' ');
-					if (ten == 0)
-						_putchar(' ');
-					else
-						_putchar(ten + '0');
-					_putchar(one + '0');
-				}
-				else if (hun != 0)
-				{
-					_putchar(hun + '0');
-					_putchar(ten + '0');
-					_putchar(one + '0');
-				}
-				if (col == 0)
-					_putchar('0');
-				if (col != n)
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
+				_putchar(hunds);
+				_putchar(tens);
 			}
-			_putchar('\n');
-			col = 0;
+			_putchar(ones);
+			if (j != tab_size)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 		}
+		_putchar('\n');
 	}
 }
