@@ -1,45 +1,50 @@
 #include "holberton.h"
+#include <math.h>
 
 /**
- * print_number - prints the number
- * @n: number to print
- * Return:none
+ * print_number - Checks if an int is and uppercase letter.
+ * @n: The int to print.
+ *
+ *
  */
-
 void print_number(int n)
 {
-	int i, digit, place, fake_bool;
-	long j;
-	char num[1000];
+	int counter, neg, i;
+	double num, temp, smallify;
 
-	place = 0;
-	fake_bool = 0;
-	j = n;
-	if (j < 0)
+	neg = 0;
+	num = (double)n;
+	if (n < 0)
 	{
-		j = j * -1;
-		fake_bool = 1;
+		neg = 1;
+		num = -num;
 	}
-	while ((j / 10) != 0)
+	temp = 0;
+	counter = 0;
+	while ((int)num != 0)
 	{
-		digit = j % 10;
-		num[place] = digit;
-		place++;
-		j = j / 10;
-	}
-	num[place] = j;
-	if (fake_bool == 1)
-	{
-		place++;
-		num[place] = '-';
-	}
-	for (i = place; i >= 0; i--)
-	{
-		if (num[i] != '-')
-		{
-			_putchar(num[i] + '0');
-		}
+		if ((num - 1000) > 0)
+			smallify = num - 1000;
 		else
-			_putchar('-');
+			smallify = num;
+		temp = (temp * 10) + ((int)smallify % 10);
+		counter = counter + 1;
+		num = (int)(num / 10);
+
 	}
+	if (!counter)
+		_putchar('0');
+
+	if (neg)
+		_putchar('-');
+	for (i = 0; i < counter; i++)
+	{
+		smallify = temp;
+		if (((int)smallify % 10) + '0' != '(')
+			_putchar(((int)smallify % 10) + '0');
+		else
+			_putchar('2');
+		temp = (int)(temp / 10);
+	}
+
 }
