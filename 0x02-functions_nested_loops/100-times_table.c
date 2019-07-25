@@ -1,41 +1,60 @@
 #include "holberton.h"
 
 /**
- * print_times_table - prints the 9 times table
- * @tab_size: The size of the table.
- *Return: void
+ * print_times_table - prints times table for numbers from 0-14
+ *
+ * @n: time table to print
+ * Return: void
  */
-void print_times_table(int tab_size)
+void print_times_table(int n)
 {
-	int i, j, prod;
-	char hunds, tens, ones;
+	int i, j;
 
-	if (tab_size < 0 || tab_size > 15)
-		return;
-	for (i = 0; i <= tab_size; i++)
+	i = 0;
+	if (n >= 0 && n < 15)
 	{
-		for (j = 0; j <= tab_size; j++)
+		while (i <= n)
 		{
-			prod = i * j;
-			ones = (prod % 10) + 48;
-			tens = ((prod / 10) % 10) + 48;
-			hunds = (((prod / 10) / 10) % 10) + 48;
-			if (tens == '0' && hunds == '0')
-				tens = ' ';
-			if (hunds == '0')
-				hunds = ' ';
-			if (j != 0)
-			{
-				_putchar(hunds);
-				_putchar(tens);
-			}
-			_putchar(ones);
-			if (j != tab_size)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
+			_putchar('0');
+			j = 1;
+			while (j <= n)
+				putformatnumber(i * j++);
+			_putchar('\n');
+			i++;
 		}
-		_putchar('\n');
+	}
+}
+
+/**
+ * putformatnumber - puts formatted characters to output
+ *
+ * @n: number to format
+ * Return: void
+ */
+void putformatnumber(int n)
+{
+	if (n < 10)
+	{
+		_putchar(',');
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(n + '0');
+	}
+	else if (n >= 10 && n < 100)
+	{
+		_putchar(',');
+		_putchar(' ');
+		_putchar(' ');
+		_putchar(n / 10 + '0');
+		_putchar(n % 10 + '0');
+	}
+	else
+	{
+		_putchar(',');
+		_putchar(' ');
+		_putchar(n / 100 + '0');
+		_putchar(n / 10 % 10 + '0');
+		_putchar(n % 10 + '0');
 	}
 }
