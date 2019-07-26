@@ -1,0 +1,1 @@
+Directory of prototypes of variadic functions.
