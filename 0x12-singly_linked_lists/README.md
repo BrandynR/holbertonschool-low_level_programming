@@ -1,0 +1,1 @@
+This directory contains prototype functions for linked lists to print elements of a list, return the number of elements in a linked list, add a node to the beginning of a list, add a node to the end, and frees that linked list.
