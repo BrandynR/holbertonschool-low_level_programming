@@ -1,0 +1,1 @@
+This directory contains more prototype functions that utilize or manipulate linked lists.
