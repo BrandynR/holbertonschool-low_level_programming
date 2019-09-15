@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stdlib.h>
 /**
  * add_dnodeint - adds a node to a doubly linked list
  * @head: head of dlist
