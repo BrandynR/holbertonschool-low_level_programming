@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * insert_dnodeint_at_index - inserts a new node at a specific index
  * @idx: index to insert at
@@ -9,44 +8,37 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *walk, *newnode, *temp;
-	unsigned int i;
+	dlistint_t *new, *search = *h;
+	unsigned int i = 0;
 
-	if (h == NULL && idx != 0)
+	new = malloc(sizeof(dlistint_t));
+	if (!new)
 		return (NULL);
-	walk = *h;
-	newnode = malloc(sizeof(dlistint_t));
-	if (newnode == NULL)
-		return (NULL);
-	newnode->n = n;
 	if (idx == 0)
 	{
-		if (walk != NULL)
-		{
-			newnode->next = walk;
-			walk->prev = newnode;
-		}
-		else
-			newnode->next = NULL;
-		newnode->prev = NULL; *h = newnode;
-		return (*h);
+		new->n = n;
+		new->next = (*h);
+		new->prev = NULL;
+		if ((*h) != NULL)
+			(*h)->prev = new;
+		(*h) = new;
+		return (new);
 	}
-	for (i = 0; i < (idx - 1); i++)
+	while (search)
 	{
-		if (walk == NULL)
+		if (i == idx - 1)
 		{
-			free(newnode); return (NULL);
+			new->n = n;
+			new->next = search->next;
+			new->prev = search;
+			search->next = new;
+			if (new->next)
+				new->next->prev = new;
+			return (new);
 		}
-		walk = walk->next;
+		search = search->next;
+		i++;
 	}
-	if (walk == NULL)
-	{
-		free(newnode); return (NULL);
-	}
-	temp = walk;
-	walk = walk->next;
-	temp->next = newnode;
-	newnode->next = walk;
-	newnode->prev = temp;
-	return (newnode);
+	free(new);
+	return (NULL);
 }
