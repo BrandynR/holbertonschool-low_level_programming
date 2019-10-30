@@ -54,6 +54,12 @@ typedef struct deck_node_s
 	struct deck_node_s *next;
 } deck_node_t;
 
+void quick_sort(int *array, size_t size);
+int partition(int *array, size_t size, int begin, int piv);
+void qSort(int *array, size_t size, int begin, int last);
+void swap2(int *array, size_t size, int index, int index2);
+void swapPrevious(listint_t *node);
+void swap(int **array, int index, int index2);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
