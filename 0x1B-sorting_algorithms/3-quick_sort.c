@@ -1,90 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "sort.h"
 
 /**
- * quick_sort - Calls recursive qSort function on array
- * @array: Array to be sorted
- * @size: Size of the array
- *
- * Return: void
+ * quick_sort - wrapper to call qs to sort an array
+ * @array: array to be sorted
+ * @size: size of array
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
-		return;
-	qSort(array, size, 0, size - 1);
+	qs(array, size, 0, size);
 }
 
 /**
- * partition - Function to partition the array
- * @array: Array to be partitioned
- * @size: Size of the array
- * @begin: beginning of the array
- * @piv: Turning point
- *
- * Return: void
+ * qs - recursively sorts an array
+ * @array: array to sort
+ * @size: size of the array
+ * @start: starting point
+ * @end: ending point (and pivot)
  */
-int partition(int *array, size_t size, int begin, int piv)
+void qs(int *array, size_t size, int start, int end)
 {
-	int first, second, third;
+	int part;
 
-	if (array == NULL)
-		return (-1);
-	first = array[piv];
-	second = begin - 1;
-	third = piv + 1;
+	if (end <= start)
+		return;
+	part = partition(array, size, start, end);
+	qs(array, size, start, part - 1);
+	qs(array, size, part, end);
+}
+
+/**
+ * partition - partitions an array using hoare partition scheme
+ * @array: array to partition
+ * @size: size of the array
+ * @start: lo for the partition
+ * @pivot: pivot
+ * Return: returns new place to pivot from
+ */
+int partition(int *array, size_t size, int start, int pivot)
+{
+	int x, i, j;
+
+	x = array[pivot];
+	i = start - 1;
+	j = pivot + 1;
+
 	while (1)
 	{
-		do third--;
-		while (array[third] > first);
-		do second++;
-		while (array[second] < first);
-		if (second >= third)
-			return (second);
-		if (array[third] != array[second])
-			swap2(array, size, second, third);
+
+		do j--;
+		while (array[j] > x);
+		do i++;
+		while (array[i] < x);
+
+
+		if (i >= j)
+			return (i);
+		swap(array, size, i, j);
 	}
 }
 
 /**
- * qSort - Sort an array using quicksort recursion
- * @array: array to be sorted
+ * swap - swaps two elements in an array
+ * @array: array to swap in
  * @size: size of the array
- * @begin: Beginning of the array
- * @last: End of the array
- *
- * Return: void
+ * @i: swapped with j
+ * @j: swapped with i
  */
-void qSort(int *array, size_t size, int begin, int last)
+void swap(int *array, size_t size, int i, int j)
 {
-	int store;
+	int tmp;
 
-	if (array == NULL)
-		return;
-	if (last <= begin)
-		return;
-	store = partition(array, size, begin, last);
-	qSort(array, size, begin, store - 1);
-	qSort(array, size, store, last);
-}
-
-/**
- * swap2 - Swaps positions in an array
- * @array: Array to swap elements in
- * @size: Size of the array
- * @index: First index
- * @index2: Second index
- *
- * Return: void
- */
-void swap2(int *array, size_t size, int index, int index2)
-{
-	int swap;
-
-	if (array == NULL)
-		return;
-	swap = array[index];
-	array[index] = array[index2];
-	array[index2] = swap;
-	if (array[index] != array[index2])
-		print_array(array, size);
+	tmp = array[i];
+	array[i] = array[j];
+	array[j] = tmp;
+	print_array(array, size);
 }
