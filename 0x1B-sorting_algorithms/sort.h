@@ -28,5 +28,5 @@ void quick_sort(int *array, size_t size);
 void qs(int *array, size_t size, int start, int end);
 int partition(int *array, size_t size, int start, int pivot);
 void swap(int *array, size_t size, int i, int j);
-
+void shell_sort(int *array, size_t size);
 #endif
