@@ -1,56 +1,42 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "sort.h"
 
 /**
- * bubble_sort - bubble sorts an array
- * @array: array to sort
+ * swap: swap array elements
+ * @ptr1: ptr to array element
+ * @ptr2: prt to array element
+ * Return: void
+ */
+void swap(int *ptr1, int *ptr2)
+{
+	int temp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = temp;
+}
+
+/**
+ * bubble_sort - sort an array of integers asending order
+ * @array: input array
  * @size: size of array
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i;
-	int temp, flag;
+	size_t i, j;
+	char isSorted;
 
-	while (1)
+	for (i = 1; i < size; i++)
 	{
-		if (size < 2)
-			break;
-		flag = 0;
-		for (i = 1; i < size; i++)
+		isSorted = 1;
+		for (j = 0; j < size - 1; j++)
 		{
-			if (array[i - 1] > array[i])
+			if (array[j] > array[j + 1])
 			{
-				flag = 1;
-				temp = array[i];
-				array[i] = array[i - 1];
-				array[i - 1] = temp;
+				swap(&array[j], &array[j + 1]);
+				isSorted = 0;
 				print_array(array, size);
 			}
 		}
-		if (flag == 0)
+		/* if no two elements were swapped by inner loop, then break */
+		if (isSorted == 1)
 			break;
 	}
-}
-
-
-/**
- * print_array - Prints an array of integers
- *
- * @array: The array to be printed
- * @size: Number of elements in @array
- */
-void print_array(const int *array, size_t size)
-{
-	size_t i;
-
-	i = 0;
-	while (array && i < size)
-	{
-		if (i > 0)
-			printf(", ");
-		printf("%d", array[i]);
-		++i;
-	}
-	printf("\n");
 }
