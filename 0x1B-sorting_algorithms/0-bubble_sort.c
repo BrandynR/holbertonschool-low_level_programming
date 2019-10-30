@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * swap: swap array elements
+ * swap -  swap array elements
  * @ptr1: ptr to array element
  * @ptr2: prt to array element
  * Return: void
