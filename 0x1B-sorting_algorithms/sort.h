@@ -54,26 +54,36 @@ typedef struct deck_node_s
 	struct deck_node_s *next;
 } deck_node_t;
 
-void quick_sort(int *array, size_t size);
-int partition(int *array, size_t size, int begin, int piv);
-void qSort(int *array, size_t size, int begin, int last);
-void swap2(int *array, size_t size, int index, int index2);
-void swapPrevious(listint_t *node);
-void swap(int **array, int index, int index2);
+typedef struct listint_s
+{
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
+} listint_t;
+
+
+listint_t *create_listint(const int *array, size_t size);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
+void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
-void quick_sort_hoare(int *array, size_t size);
-void sort_deck(deck_node_t **deck);
 
+listint_t *from_index(listint_t **list, unsigned int index);
+unsigned int list_swap(listint_t **list, unsigned int index);
+unsigned int rev_list(listint_t **list);
+unsigned int list_length(listint_t **list);
+
+/* Quicksort Stuff */
+void qs(int *array, size_t size, int start, int end);
+int partition(int *array, size_t size, int pivot, int end);
+void swap(int *array, size_t size, int i, int j);
 #endif
