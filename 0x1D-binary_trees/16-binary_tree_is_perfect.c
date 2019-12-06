@@ -7,6 +7,8 @@
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
+	binary_tree_t *left, *right;
+
 	if (!tree)
 		return (0);
 	left = tree->left;
