@@ -7,20 +7,24 @@
  * Return: the lowest common ancestor node of the two given nodes
  */
 
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+				     const binary_tree_t *second)
 {
-	if (!first || !second)
-		return (NULL);
-	if (first == second)
-		return (NULL);
-	if (second->parent == first)
-		return (second->parent);
-	if (first->parent == second)
-		return (first->parent);
-	if (first->parent == second->parent)
-		return (first->parent);
+	binary_tree_t *place_holder;
 
-	binary_trees_ancestor(first->parent, second->parent);
+	if (!first || !second || (!first->parent && !second->parent))
+		return (NULL);
 
+	while (first)
+	{
+		place_holder = (binary_tree_t *)second;
+		while (place_holder)
+		{
+			if (place_holder->n == first->n)
+				return (place_holder);
+			place_holder = place_holder->parent;
+		}
+		first = first->parent;
+	}
 	return (NULL);
 }
