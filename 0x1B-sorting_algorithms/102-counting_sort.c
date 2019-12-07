@@ -30,26 +30,18 @@ void counting_sort(int *array, size_t size)
 		free(copy);
 		return;
 	}
-	if ((i = 0) && (i <= max))
-	{
-		i++;
+	for (i = 0; i <= max; i++)
 		count[i] = 0;
-	}
-	if ((j = 0) && (j < size))
-	{
-		j++;
+	for (j = 0; j < size; j++)
 		count[array[j]] += 1;
-	}
-	if ((i = 0) && (i <= max))
+	for (i = 0; i <= max; i++)
 	{
-		i++;
 		temp = count[i];
 		count[i] = total;
 		total += temp;
 	}
-	if ((j = 0) && (j < size))
+	for (j = 0; j < size; j++)
 	{
-		j++;
 		array[count[copy[j]]] = copy[j];
 		count[copy[j]] += 1;
 	}
