@@ -12,32 +12,32 @@ void cocktail_sort_list(listint_t **list)
 	char swap_node = 1;
 	listint_t *temp;
 
-	if (list == NULL || *list == NULL)
+	if (!list || !*list)
 		return;
 	temp = *list;
 	while (swap_node != 0)
 	{
 		swap_node = 0;
-		while (temp->next != NULL)
+		while (temp->next)
 		{
 			if (temp->next->n < temp->n)
 			{
-				swap(list, temp);
+				my_swap(list, temp);
 				swap_node = 1;
 				print_list(*list);
 			}
 			else
 				temp = temp->next;
 		}
-		if (swapped_node == 0)
+		if (swap_node == 0)
 			break;
-		swapped_node = 0;
-		while (temp->prev != NULL)
+		swap_node = 0;
+		while (temp->prev)
 		{
 			if (temp->prev->n > temp->n)
 			{
-				swap(list, temp->prev);
-				swapped_node = 1;
+				my_swap(list, temp->prev);
+				swap_node = 1;
 				print_list(*list);
 			}
 			else
@@ -47,13 +47,13 @@ void cocktail_sort_list(listint_t **list)
 }
 
 /**
- * swap - swaps a node in doubly linked list with next node in the list
+ * my_swap - swaps a node in doubly linked list with next node in the list
  * @list: double pointer to head of list
  * @node: node to swap
  * Return: void
  */
 
-void swap(listint_t **list, listint_t *node)
+void my_swap(listint_t **list, listint_t *node)
 {
 	node->next->prev = node->prev;
 	if (node->prev)
