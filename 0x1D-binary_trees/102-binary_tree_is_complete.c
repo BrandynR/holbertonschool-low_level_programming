@@ -27,6 +27,8 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 
 int tree_check(const binary_tree_t *tree, size_t index, size_t size)
 {
+	size_t left, right;
+
 	if (!tree)
 		return (1);
 
@@ -34,7 +36,7 @@ int tree_check(const binary_tree_t *tree, size_t index, size_t size)
 		return (0);
 	left = tree_check(tree->left, 2 * index + 1, size);
 	right = tree_check(tree->right, 2 * index + 2, size);
-	return (left && right)
+	return (left && right);
 }
 
 /**
