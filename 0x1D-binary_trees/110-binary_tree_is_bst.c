@@ -19,8 +19,8 @@ int valid_search_tree(const binary_tree_t *tree, int min, int max)
 		return (0);
 	if (tree->n > max)
 		return (0);
-	left = valid_search_tree(tree->left, min, tree->n - 1);
-	right = valid_search_tree(tree->right, tree->n + 1, max);
+	left_min = valid_search_tree(tree->left, min, tree->n - 1);
+	right_max = valid_search_tree(tree->right, tree->n + 1, max);
 	return (left_min && right_max);
 }
 
